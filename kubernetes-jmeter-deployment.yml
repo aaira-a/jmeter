@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: azam-jmeter-deployment
+  labels:
+    name: azam-jmeter
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: azam-jmeter
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        name: azam-jmeter
+    spec:
+      containers:
+        - image: azam/jmeter
+          name: jmeter
+          command: [ "/bin/bash", "-c", "--" ]
+          args: [ "while true; do sleep 30; done;" ]
+          resources:
+            requests:
+              memory: 150Mi
+            limits:
+              memory: 300Mi
