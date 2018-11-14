@@ -38,9 +38,9 @@ RUN mkdir -p /tmp/jmeterplugins \
         --output ${JMETER_LIB_FOLDER}/cmdrunner-${CMDRUNNER_VERSION}.jar \
   && java -cp ${JMETER_PLUGINS_FOLDER}/jmeter-plugins-manager-${JMETER_PLUGINS_MANAGER_VERSION}.jar org.jmeterplugins.repository.PluginManagerCMDInstaller \
   && PluginsManagerCMD.sh install \
-    jpgc-casutg=2.6, \
-    jpgc-graphs-basic=2.0, \
-    jpgc-tst=2.5 \
+jpgc-casutg=2.6,\
+jpgc-graphs-basic=2.0,\
+jpgc-tst=2.5\
   && PluginsManagerCMD.sh status \
   && jmeter --version \
   && rm -rf /tmp/jmeterplugins
