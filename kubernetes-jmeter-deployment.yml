@@ -27,6 +27,6 @@ spec:
           args: [ "while true; do sleep 30; done;" ]
           resources:
             requests:
-              memory: 150Mi
+              memory: 2048Mi
             limits:
-              memory: 300Mi
+              memory: 1536Mi
